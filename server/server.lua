@@ -15,7 +15,7 @@ local silahlar = {
 ESX.RegisterUsableItem('silah-kasasi', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	local rastgelesilah = math.random(1,6)
-	if xPlayer.hasWeapon(rastgelesilah) then
+	if xPlayer.hasWeapon(silahlar[rastgelesilah].name) then
 		TriggerEvent('kasa:addWeapon', xPlayer)
 	else
 		if disc == 0 then
