@@ -20,13 +20,13 @@ ESX.RegisterUsableItem('silah-kasasi', function(source)
 	else
 		if disc == 0 then
 			local silah = silahlar[rastgelesilah].name
-			xPlayer.addWeapon(silah, 1)
 			xPlayer.removeInventoryItem("silah-kasasi",1)
+			xPlayer.addWeapon(silah, 1)
 		else
 			local mermi = math.random(1,250)
 			local silah = silahlar[rastgelesilah].name
-			xPlayer.addWeapon(silah, mermi)
 			xPlayer.removeInventoryItem("silah-kasasi",1)
+			xPlayer.addWeapon(silah, mermi)
 		end
 	end
 end)
@@ -36,7 +36,7 @@ end)
 RegisterNetEvent('kasa:addWeapon')
 AddEventHandler('kasa:addWeapon', function(xPlayer)
 	local rastgelesilah = math.random(1,6)
-	if xPlayer.hasWeapon(rastgelesilah) then
+	if xPlayer.hasWeapon(silahlar[rastgelesilah].name) then
 		TriggerEvent('kasa:addWeapon', xPlayer)
 	else
 		if disc == 0 then
