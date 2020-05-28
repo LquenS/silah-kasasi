@@ -21,7 +21,7 @@ ESX.RegisterUsableItem('silah-kasasi', function(source)
 		if disc == 0 then
 			local silah = silahlar[rastgelesilah].name
 			xPlayer.removeInventoryItem("silah-kasasi",1)
-			xPlayer.addWeapon(silah, 1)
+			xPlayer.addInventoryItem(silah, 1)
 		else
 			local mermi = math.random(1,250)
 			local silah = silahlar[rastgelesilah].name
@@ -41,13 +41,13 @@ AddEventHandler('kasa:addWeapon', function(xPlayer)
 	else
 		if disc == 0 then
 			local silah = silahlar[rastgelesilah].name
-			xPlayer.addWeapon(silah, 1)
 			xPlayer.removeInventoryItem("silah-kasasi",1)
+			xPlayer.addInventoryItem(silah, 1)
 		else
 			local mermi = math.random(1,250)
 			local silah = silahlar[rastgelesilah].name
-			xPlayer.addWeapon(silah, mermi)
 			xPlayer.removeInventoryItem("silah-kasasi",1)
+			xPlayer.addWeapon(silah, mermi)
 		end
 	end
 end)
