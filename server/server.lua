@@ -15,13 +15,17 @@ local silahlar = {
 ESX.RegisterUsableItem('silah-kasasi', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	local rastgelesilah = math.random(1,6)
-	if xPlayer.hasWeapon(silahlar[rastgelesilah].name) then
-		TriggerEvent('kasa:addWeapon', xPlayer)
-	else
-		if disc == 0 then
+	if disc == 1 then
+		if xPlayer.getInventoryItem(silahlar[rastgelesilah].name).count > 0 then
+			TriggerEvent('kasa:addWeapon', xPlayer)
+		else
 			local silah = silahlar[rastgelesilah].name
 			xPlayer.removeInventoryItem("silah-kasasi",1)
-			xPlayer.addInventoryItem(silah, 1)
+			xPlayer.addWeapon(silah, 1)
+		end
+	else
+		if xPlayer.hasWeapon(silahlar[rastgelesilah].name) then
+			TriggerEvent('kasa:addWeapon', xPlayer)
 		else
 			local mermi = math.random(1,250)
 			local silah = silahlar[rastgelesilah].name
@@ -36,13 +40,17 @@ end)
 RegisterNetEvent('kasa:addWeapon')
 AddEventHandler('kasa:addWeapon', function(xPlayer)
 	local rastgelesilah = math.random(1,6)
-	if xPlayer.hasWeapon(silahlar[rastgelesilah].name) then
-		TriggerEvent('kasa:addWeapon', xPlayer)
-	else
-		if disc == 0 then
+	if disc == 1 then
+		if xPlayer.getInventoryItem(silahlar[rastgelesilah].name).count > 0 then
+			TriggerEvent('kasa:addWeapon', xPlayer)
+		else
 			local silah = silahlar[rastgelesilah].name
 			xPlayer.removeInventoryItem("silah-kasasi",1)
-			xPlayer.addInventoryItem(silah, 1)
+			xPlayer.addWeapon(silah, 1)
+		end
+	else
+		if xPlayer.hasWeapon(silahlar[rastgelesilah].name) then
+			TriggerEvent('kasa:addWeapon', xPlayer)
 		else
 			local mermi = math.random(1,250)
 			local silah = silahlar[rastgelesilah].name
